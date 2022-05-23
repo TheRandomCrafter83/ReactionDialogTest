@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,13 +89,11 @@ public class PostsAdapterRetrofit extends RecyclerView.Adapter<PostsAdapterRetro
         LikeValue value = items.get(position).getLikeValue();
         switch (value){
             case LIKE:
+            case DEFAULT:
                 holder.imageView.setImageResource(R.drawable.ic_like);
                 break;
             case WOW:
                 holder.imageView.setImageResource(R.drawable.wowreaction);
-                break;
-            case DEFAULT:
-                holder.imageView.setImageResource(R.drawable.ic_like);
                 break;
             case EYES_CLOSED:
                 holder.imageView.setImageResource(R.drawable.ic_eyeclosereaction);

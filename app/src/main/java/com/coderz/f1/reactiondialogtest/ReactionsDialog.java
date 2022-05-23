@@ -68,25 +68,21 @@ public class ReactionsDialog extends DialogFragment implements View.OnClickListe
         switch (v.getId()){
             case R.id.likeReaction:
                 listener.onReactionSelected(0,itemPosition);
-                getDialog().dismiss();
                 break;
             case R.id.loveReaction:
                 listener.onReactionSelected(1,itemPosition);
-                getDialog().dismiss();
                 break;
             case R.id.hahaReaction:
                 listener.onReactionSelected(2,itemPosition);
-                getDialog().dismiss();
                 break;
             case R.id.eyeCloseReaction:
                 listener.onReactionSelected(3,itemPosition);
-                getDialog().dismiss();
                 break;
             case R.id.wowReaction:
                 listener.onReactionSelected(4,itemPosition);
-                getDialog().dismiss();
                 break;
         }
+        dismiss();
     }
 
     @SuppressLint("RestrictedApi")
