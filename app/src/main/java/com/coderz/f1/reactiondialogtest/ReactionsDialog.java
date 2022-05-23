@@ -15,13 +15,16 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 public class ReactionsDialog extends DialogFragment implements View.OnClickListener{
+    int itemPosition;
 
-    public ReactionsDialog(ReactionListener listener){
+    public ReactionsDialog(ReactionListener listener, int itemPosition){
         this.listener = listener;
+        this.itemPosition = itemPosition;
     }
 
     public interface ReactionListener {
-        void onReactionSelected(int reactionType);
+        default void onReactionSelected(int reactionType, int itemPosition){}
+        default void onReactionSelected(int reactionType){}
     }
 
     ReactionListener listener;
@@ -64,23 +67,23 @@ public class ReactionsDialog extends DialogFragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.likeReaction:
-                listener.onReactionSelected(0);
+                listener.onReactionSelected(0,itemPosition);
                 getDialog().dismiss();
                 break;
             case R.id.loveReaction:
-                listener.onReactionSelected(1);
+                listener.onReactionSelected(1,itemPosition);
                 getDialog().dismiss();
                 break;
             case R.id.hahaReaction:
-                listener.onReactionSelected(2);
+                listener.onReactionSelected(2,itemPosition);
                 getDialog().dismiss();
                 break;
             case R.id.eyeCloseReaction:
-                listener.onReactionSelected(3);
+                listener.onReactionSelected(3,itemPosition);
                 getDialog().dismiss();
                 break;
             case R.id.wowReaction:
-                listener.onReactionSelected(4);
+                listener.onReactionSelected(4,itemPosition);
                 getDialog().dismiss();
                 break;
         }

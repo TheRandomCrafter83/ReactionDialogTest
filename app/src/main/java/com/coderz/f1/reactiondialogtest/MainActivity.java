@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        List<String> items = Arrays.asList("hello", "world");
+        List<Post> items = Arrays.asList(new Post("Hello World",LikeValue.DEFAULT), new Post("This is a test",LikeValue.DEFAULT));
         binding.recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         binding.recycler.setAdapter(new PostsAdapterRetrofit(this,items));
     }
